@@ -12,7 +12,7 @@ init(autoreset=True)  # Auto-reset color after each print
 CONFIG_FILE = 'config.json'
 
 # 🎨 ASCII ART - Branding
-ASCII_ART = f"""{Fore.GREEN}
+ASCII_ART = fr"""{Fore.GREEN}
  _  __    _            ___  __  __  ____  ___  
 | |/ /___(_)_ __ __ _ / _ \|  \/  |/ ___|/ _ \ 
 | ' // _ \ | '__/ _` | | | | |\/| | |  _| | | |
@@ -44,7 +44,7 @@ bot = commands.Bot(command_prefix="!", self_bot=True)
 
 @bot.event
 async def on_ready():
-    print(f"{Fore.GREEN}Welcome {bot.user}! Mass message deleter is ready!{Fore.RESET}")
+    print(f"{Fore.GREEN}Welcome {bot.user}! Mass message deleter and spammer is ready!{Fore.RESET}")
     input(f"{Fore.RED}⚠️  Press ENTER to confirm you understand the risk before proceeding...{Fore.RESET}")
     await bot.add_cog(nuke.CommandsCog(bot))
 
