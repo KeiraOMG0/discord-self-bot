@@ -27,7 +27,6 @@ class CommandsCog(commands.Cog):
                 try:
                     await msg.delete()
                     deleted += 1
-                    await asyncio.sleep(1)  # ⏳ Increased sleep time to prevent bans
                 except discord.HTTPException:
                     continue
 
@@ -54,7 +53,6 @@ class CommandsCog(commands.Cog):
                     try:
                         await channel.send(message)
                         sent_count += 1
-                        await asyncio.sleep(0.5)  # ⏳ Prevent API spamming rate limit
                     except discord.HTTPException:
                         continue
 
@@ -90,7 +88,6 @@ async def mass_ban(self, ctx, server_id: int, num_bans: int):
                 await member.ban(reason="Mass banning", delete_message_days=0)
                 banned_count += 1
                 print(f"[INFO] Banned {member.name}")
-                await asyncio.sleep(1)
         except discord.Forbidden:
             print(f"[ERROR] Forbidden to ban {member.name}")
             continue
@@ -124,7 +121,6 @@ async def mass_channel_create(self, ctx, server_id: int, num_channels: int):
             await server.create_text_channel('nuked-channel')
             created_count += 1
             print(f"[INFO] Created channel {created_count}")
-            await asyncio.sleep(1)
         except discord.Forbidden:
             print("[ERROR] Forbidden to create channel.")
             break
@@ -162,7 +158,6 @@ async def mass_channel_delete(self, ctx, server_id: int, num_channels: int):
             await channel.delete()
             deleted_count += 1
             print(f"[INFO] Deleted channel {channel.name}")
-            await asyncio.sleep(1)
         except discord.Forbidden:
             print(f"[ERROR] Forbidden to delete channel {channel.name}")
             continue
@@ -200,7 +195,6 @@ async def mass_role_delete(self, ctx, server_id: int, num_roles: int):
                 await role.delete()
                 deleted_count += 1
                 print(f"[INFO] Deleted role {role.name}")
-                await asyncio.sleep(1)
             except discord.Forbidden:
                 print(f"[ERROR] Forbidden to delete role {role.name}")
                 continue
