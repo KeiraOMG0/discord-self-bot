@@ -31,7 +31,7 @@ start.bat
 ### 3. Token Configuration
 The bot will ask for your Discord token on the first run if config.json doesn't exist. Enter the token to allow the bot to log in and begin interacting with Discord.
 
-###4. Running the Bot
+### 4. Running the Bot
 After installing dependencies and setting the token, you can run the bot using the following command:
 
 start.bat
@@ -44,7 +44,7 @@ Here are the available commands:
 Deletes messages in the specified channel.
 
 channel_id: The ID of the channel where you want to delete messages.
-limit: The number of messages to delete. (Maximum: 100)
+limit: The number of messages to delete.
 Example:
 
 !delete 123456789012345678 50
