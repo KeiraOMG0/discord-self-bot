@@ -61,4 +61,4 @@ class CommandsCog(commands.Cog):
         await ctx.send(f"{Fore.GREEN}✔ Sent {sent_count} spam messages across all channels in {server.name}.{Fore.RESET}")
 
 def setup(bot):
-    await bot.add_cog(CommandsCog(bot))
+    bot.add_cog(CommandsCog(bot))
