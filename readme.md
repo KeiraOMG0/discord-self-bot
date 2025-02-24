@@ -20,20 +20,22 @@ Before running the bot, you need the following installed:
 
 ### 1. Clone the Repository (Optional)
 git clone https://github.com/KeiraOMG/discord-self-bot.git
+
 cd discord-self-bot
 
-###2. Install Dependencies
+### 2. Install Dependencies
 Run the start.bat file to automatically install all required dependencies and set up the virtual environment.
 
 start.bat
 
-###3. Token Configuration
+### 3. Token Configuration
 The bot will ask for your Discord token on the first run if config.json doesn't exist. Enter the token to allow the bot to log in and begin interacting with Discord.
 
 ###4. Running the Bot
 After installing dependencies and setting the token, you can run the bot using the following command:
 
 start.bat
+
 How to Use the Bot
 Commands
 Here are the available commands:
@@ -46,6 +48,7 @@ limit: The number of messages to delete. (Maximum: 100)
 Example:
 
 !delete 123456789012345678 50
+
 2. !spam <server_id> <message>
 Spams a message in the specified server.
 
