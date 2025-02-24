@@ -33,10 +33,13 @@ class CommandsCog(commands.Cog):
 
         await ctx.send(f"{Fore.GREEN}✔ Deleted {deleted} messages in {channel.name}.{Fore.RESET}")
 
-    # Mass spammer for a server
     @commands.command()
-    async def spam(self, ctx, server_id: int, message: str, times: int = 10):
-        """Spam a message in a server."""
+    async def spam(self, ctx, server_id: int, *message_parts):
+        """Spam a message in all text channels of a server."""
+        # Join all parts of the message into a single string (ignoring the times argument)
+        message = " ".join(message_parts[:-1])  # All parts except the last one
+        times = int(message_parts[-1])  # The last part is the number of times
+
         server = ctx.bot.get_guild(server_id)
 
         if server is None:
@@ -45,15 +48,17 @@ class CommandsCog(commands.Cog):
 
         await ctx.message.delete()  # Delete the command message
         sent_count = 0
-        for _ in range(times):
-            try:
-                await server.text_channels[0].send(message)
-                sent_count += 1
-                await asyncio.sleep(0.5)  # ⏳ Prevent API spamming rate limit
-            except discord.HTTPException:
-                continue
+        for channel in server.text_channels:
+            if isinstance(channel, discord.TextChannel):  # Ensure it's a text channel
+                for _ in range(times):
+                    try:
+                        await channel.send(message)
+                        sent_count += 1
+                        await asyncio.sleep(0.5)  # ⏳ Prevent API spamming rate limit
+                    except discord.HTTPException:
+                        continue
 
-        await ctx.send(f"{Fore.GREEN}✔ Sent {sent_count} spam messages in {server.name}.{Fore.RESET}")
+        await ctx.send(f"{Fore.GREEN}✔ Sent {sent_count} spam messages across all channels in {server.name}.{Fore.RESET}")
 
 def setup(bot):
     await bot.add_cog(CommandsCog(bot))
