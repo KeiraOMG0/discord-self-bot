@@ -20,9 +20,19 @@ if not exist ".venv\" (
 :: Activate the virtual environment
 call .venv\Scripts\activate.bat
 
+
+
 :: Run the bot
 echo Starting bot...
 python main.py
+
+
+:: Wait for 2 seconds
+timeout /t 2 /nobreak >nul
+
+:: Clear the console
+cls
+
 
 :: Optional: Keep window open if there is an error
 if %errorlevel% neq 0 (
