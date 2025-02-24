@@ -19,7 +19,7 @@ Before running the bot, you need the following installed:
 ## Installation
 
 ### 1. Clone the Repository (Optional)
-```git clone https://github.com/KeiraOMG/discord-self-bot.git```
+`git clone https://github.com/KeiraOMG/discord-self-bot.git`
 
 cd discord-self-bot
 
@@ -33,7 +33,7 @@ The bot will ask for your Discord token on the first run if config.json doesn't 
 ### 4. Running the Bot
 After installing dependencies and setting the token, you can run the bot using the following command:
 
-```start.bat```
+`start.bat`
 
 How to Use the Bot
 Commands
@@ -43,21 +43,27 @@ Here are the available commands:
 Deletes messages in the specified channel.
 
 channel_id: The ID of the channel where you want to delete messages.
+
 limit: The number of messages to delete.
+
 Example:
 
-```!delete 123456789012345678 50```
+`!delete 123456789012345678 50`
 
 2. !spam <server_id> <message> <amount> 
 Spams a message in the specified server.
 
 server_id: The ID of the server where you want to send the message.
+
 message: The message you want to spam.
+
 amount: The amount of times you wanna spam
+
 Commas will break the spam command
+
 Example:
 
-```!spam 123456789012345678 Hello world! 10```
+`!spam 123456789012345678 Hello world! 10`
 
 
 Risk Warning ⚠️
